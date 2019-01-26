@@ -20,7 +20,7 @@ environment {
 
         stage('Build') { 
             steps { 
-                bat(/"mvn" -Dmaven.test.failure.ignore clean package/)
+                bat(/"mvn -Dmaven.test.failure.ignore clean package"/)
             }
         }
         stage('Test'){
