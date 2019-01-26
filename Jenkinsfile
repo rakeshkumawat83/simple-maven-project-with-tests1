@@ -4,11 +4,7 @@ pipeline {
 	def JAVA1
 	tools {
         	mvnHome 'M3'
-		JAVA1 'JAVA'
     	}
-	environment {
-		JAVA_HOME = JAVA1
-	}
 	
     stages {
 	stage('Preparation') {
