@@ -2,10 +2,12 @@ pipeline {
     agent any 
 	   def mvnHome
 	tools {
-        mvnHome 'M3'
-	env.JAVA_HOME ‘JAVA’
+        	mvnHome 'M3'
     	}
-
+	environment {
+		JAVA_HOME ‘JAVA’
+	}
+	
     stages {
 	stage('Preparation') {
             steps {
