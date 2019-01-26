@@ -1,11 +1,7 @@
 
-pipeline {
-   agent any
-   stages {
+node {
    def mvnHome
-   stage('Preparation') {
-      steps {
-      // for display purposes
+   stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       git 'https://github.com/rakeshkumawat83/simple-maven-project-with-tests.git'
       // Get the Maven tool.
@@ -13,23 +9,17 @@ pipeline {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
       env.JAVA_HOME = tool 'JAVA'
-      }
    }
    stage('Build') {
-      steps {
-         // Run the maven build
+      // Run the maven build
       if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
-      }
    }
    stage('Results') {
-      steps {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
-      }
    }
-}
 }
