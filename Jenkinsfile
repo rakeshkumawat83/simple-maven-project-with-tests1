@@ -8,7 +8,7 @@ tools {
 
 environment {
   JAVA_HOME = "JAVA"
-  mvnHome = "M3"
+  MAVEN_HOME = "M3"
 }
 	
     stages {
@@ -20,7 +20,7 @@ environment {
 
         stage('Build') { 
             steps { 
-                bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+                bat(/"bin\mvn" -Dmaven.test.failure.ignore clean package/)
             }
         }
         stage('Test'){
