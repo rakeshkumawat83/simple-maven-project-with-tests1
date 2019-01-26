@@ -1,13 +1,13 @@
 pipeline { 
     agent any 
 	   def mvnHome
-	def JAVA
+	def JAVA1
 	tools {
         	mvnHome 'M3'
-		JAVA 'JAVA'
+		JAVA1 'JAVA'
     	}
 	environment {
-		JAVA_HOME = JAVA
+		JAVA_HOME = JAVA1
 	}
 	
     stages {
