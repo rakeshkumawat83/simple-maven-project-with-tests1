@@ -10,7 +10,7 @@ environment {
   JAVA_HOME = "JAVA"
   MAVEN_HOME = "M3"
   SONAR_URL = "http://localhost:9000"
-  BuildLocation = "C:\Program Files (x86)\Jenkins\workspace\TFS_Pipeline_Project";
+  BUILD_LOCATION = "BuildLocation";
 }
 	
     stages {
@@ -38,7 +38,7 @@ environment {
                  scannerHome = tool 'SonarScanner';
               }
           withSonarQubeEnv('SonarQube') {
-		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=${BuildLocation}/target/test-classes/test" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=${BuildLocation}/TFS_Pipeline_Project/target/test-classes/test" 
              }
           }
         }
