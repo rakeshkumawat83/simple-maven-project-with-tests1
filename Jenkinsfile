@@ -9,7 +9,7 @@ tools {
 environment {
   JAVA_HOME = "JAVA"
   MAVEN_HOME = "M3"
-  SONAR_URL = "SonarQube"
+  SONAR_URL = "http://localhost:9000"
 }
 	
     stages {
