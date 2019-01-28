@@ -33,10 +33,8 @@ environment {
 	stage('Sonarqube analysis') {
     	    steps {
               script {
-                 scannerHome = tool 'SonarScanner';
-              }
-          withSonarQubeEnv('SonarQube') {
-		bat "${scannerHome}/bin/sonar-scanner.bat" 
+                 def sonarScanner = tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                 bat "${sonarScanner}/bin/sonar-scanner -e -Dsonar.host.url=xxx"
              }
           }
         }
