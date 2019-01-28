@@ -35,9 +35,10 @@ environment {
     	    steps {
               script {
                  scannerHome = tool 'SonarScanner';
+		     BuildLocation = "C:\Program Files (x86)\Jenkins\workspace\TFS_Pipeline_Project";
               }
           withSonarQubeEnv('SonarQube') {
-		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=**/target/test-classes/test" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=${BuildLocation}/target/test-classes/test" 
              }
           }
         }
