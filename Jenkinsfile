@@ -37,7 +37,7 @@ environment {
                  scannerHome = tool 'SonarScanner';
               }
           withSonarQubeEnv('SonarQube') {
-		  bat "${scannerHome}/bin/sonar-runner.bat -e -Dsonar.host.url=${SONAR_URL}" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -Dsonar.host.url=${SONAR_URL} -D sonar-project.properties" 
              }
           }
         }
