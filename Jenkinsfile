@@ -9,6 +9,7 @@ tools {
 environment {
   JAVA_HOME = "JAVA"
   MAVEN_HOME = "M3"
+  SONAR_URL = "SonarQube"
 }
 	
     stages {
@@ -36,7 +37,7 @@ environment {
                  scannerHome = tool 'SonarScanner';
               }
           withSonarQubeEnv('SonarQube') {
-		bat "${scannerHome}/bin/sonar-runner.bat" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -Dsonar.host.url=${SONAR_URL}" 
              }
           }
         }
