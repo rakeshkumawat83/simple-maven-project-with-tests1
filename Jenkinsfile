@@ -37,7 +37,7 @@ environment {
                  scannerHome = tool 'SonarScanner';
               }
           withSonarQubeEnv('SonarQube') {
-		  bat "${scannerHome}/bin/sonar-runner.bat -e -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject" 
              }
           }
         }
