@@ -38,21 +38,19 @@ environment {
                  scannerHome = tool 'SonarScanner';
               }
           withSonarQubeEnv('SonarQube') {
-		  bat "${scannerHome}/bin/sonar-runner.bat -e -X -Dsonar.host.url=${SONAR_URL} -Dsonar.projectKey=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=${BuildLocation}/TFS_Pipeline_Project/target/test-classes/test" 
+		  bat "${scannerHome}/bin/sonar-runner.bat -e -Dsonar.host.url=${SONAR_URL} -Dsonar.projectName=SimpleMavenProject -Dsonar.sources=. -Dsonar.projectKey=SimpleMavenProject:SimpleMavenProject -Dsonar.java.binaries=${BuildLocation}/TFS_Pipeline_Project/target/test-classes/test" 
              }
           }
         }
 	    
 	stage ("SonarQube Quality Gate") {
-             steps {
-		     withSonarQubeEnv('SonarQube') {
+             steps {   
                 script {
                     def qualitygate = waitForQualityGate()
                     if (qualitygate.status != "OK") {
                         error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
                     }
                 }
-		     }
              }
 	}	
     }
