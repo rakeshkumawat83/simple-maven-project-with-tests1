@@ -81,12 +81,13 @@ environment {
         // SonarQube Quality Gate check	    
 	    stage ("SonarQube Quality Gate") {
             steps {   
-                script {
+                /*script {
                     def qualitygate = waitForQualityGate()
                     if (qualitygate.status != "OK") {
                         error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
                     }
-                }
+                }*/
+                bat 'echo SonarQube Quality Gate check...'
             }
 	    }	
 
@@ -110,6 +111,7 @@ environment {
                 bat 'echo Deploy code using Configuration Manager...'
             }
         }
+
 
     }
 }
