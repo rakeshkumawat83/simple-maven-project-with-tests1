@@ -53,13 +53,13 @@ environment {
                 //Automation Testing using Firefox browser
                 stage('Automated Test Firefox'){
                     steps {
-                    //Echo 'Automation Testing using Firefox browser'
+                    //TODO
                     }
                 }
                 //Automation Testing using Chrome browser
                 stage('Automated Test Chrome'){
                     steps {
-                    //Echo 'Automation Testing using Chrome browser'
+                    //TODO
                     }
                 }
             }
@@ -93,24 +93,23 @@ environment {
         // Artifacts Repository using Artifactory
         stage('Artifacts Repository'){
             steps {
-                Echo 'Artifacts Repository using Artifactory...'
+                //TODO
             }
         }
 
         // Security Scanning (dynamic analysis using Burp Suite)
         stage('Security Scanning'){
             steps {
-                Echo 'Security Scanning (dynamic analysis using Burp Suite)...'
+                //TODO
             }
         }
 
         // Deploy code using Configuration Manager
         stage('Deploy'){
             steps {
-                Echo 'Deploy code using Configuration Manager...'
+                //TODO
             }
         }
-
 
     }
 }
