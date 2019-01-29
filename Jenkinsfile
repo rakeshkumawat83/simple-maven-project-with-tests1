@@ -53,13 +53,13 @@ environment {
                 //Automation Testing using Firefox browser
                 stage('Automated Test Firefox'){
                     steps {
-                    Echo 'Automation Testing using Firefox browser'
+                    //Echo 'Automation Testing using Firefox browser'
                     }
                 }
                 //Automation Testing using Chrome browser
                 stage('Automated Test Chrome'){
                     steps {
-                    Echo 'Automation Testing using Chrome browser'
+                    //Echo 'Automation Testing using Chrome browser'
                     }
                 }
             }
