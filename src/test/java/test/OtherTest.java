@@ -24,7 +24,7 @@
 
 package test;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class OtherTest extends Base {
 
